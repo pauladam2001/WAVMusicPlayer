@@ -16,15 +16,15 @@ class GUI:
         self.root = Tk()
         self.root.title("WAV Player")
         self.root.iconbitmap("../MusicPlayer/images/music_player.ico")
-        self.root.geometry("550x350")
+        self.root.geometry("550x375")
         # self.root.configure(bg="powder blue")
 
         self.master_frame = Frame(self.root)
-        self.master_frame.pack(pady=20)
+        self.master_frame.pack(pady=20, expand=True)    # for moving with the window
 
         self.song_box = Listbox(self.master_frame, bg="white", fg="black", width=75, selectbackground="blue",
                                 selectforeground="white")
-        self.song_box.grid(row=0, column=0)
+        self.song_box.grid(row=0, column=0, sticky="nsew")   # sticky north south east west for moving with the window
         # self.song_box.pack()
 
         # initializing
@@ -101,6 +101,7 @@ class GUI:
                 self.song_box.insert(END, song)  # always add the song at the final
             except sqlite3.IntegrityError:
                 messagebox.showinfo("Error", "Song '" + song + "' already in playlist!")
+                continue
 
     def play(self):
         try:
@@ -181,7 +182,7 @@ class GUI:
         self.forward()
 
     def delete_song(self):
-        song = self.song_box.get(self.song_box.index(self.index))
+        song = self.song_box.get(ACTIVE)
         self._controller.delete_song(song)
 
         self.song_box.delete(ANCHOR)  # the song that is highlighted
@@ -262,6 +263,7 @@ class GUI:
             pygame.mixer.music.play(start=1.00)
         except pygame.error:
             messagebox.showinfo("Error", "Can't drag the slider on wav files!")
+            self.play()
 
     def volume(self, arg):  # when we move the slider it puts its position in an argument, we're not using it
         pygame.mixer.music.set_volume(self.volume_slider.get())
@@ -300,12 +302,19 @@ class GUI:
         stop_button = Button(controls_frame, image=stop_button_img, borderwidth=0, command=self.stop)
         repeat_button = Button(controls_frame, image=repeat_button_img, borderwidth=0, command=self.repeat)
 
-        back_button.grid(row=0, column=2)
-        forward_button.grid(row=0, column=4)
-        play_button.grid(row=0, column=3)
-        pause_button.grid(row=0, column=1)
-        stop_button.grid(row=0, column=0)
-        repeat_button.grid(row=0, column=5)
+        # Grid.rowconfigure(controls_frame, index=0, weight=1)
+        # Grid.columnconfigure(controls_frame, index=0, weight=1)
+        # Grid.columnconfigure(controls_frame, index=1, weight=1)       # for dynamically resizing
+        # Grid.columnconfigure(controls_frame, index=2, weight=1)
+        # Grid.columnconfigure(controls_frame, index=3, weight=1)
+        # Grid.columnconfigure(controls_frame, index=4, weight=1)
+
+        back_button.grid(row=0, column=2, sticky="nsew")
+        forward_button.grid(row=0, column=4, sticky="nsew")
+        play_button.grid(row=0, column=3, sticky="nsew")
+        pause_button.grid(row=0, column=1, sticky="nsew")
+        stop_button.grid(row=0, column=0, sticky="nsew")
+        repeat_button.grid(row=0, column=5, sticky="nsew")
 
         my_menu = Menu(self.root)
         self.root.config(menu=my_menu)
