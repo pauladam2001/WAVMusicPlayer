@@ -1,5 +1,5 @@
 # WAVMusicPlayer
-Python-based Music Player Application that works with WAV files.
+### Python-based Music Player Application that works with WAV files.
 ---
 # Used Concepts
 - Layered Architecture
