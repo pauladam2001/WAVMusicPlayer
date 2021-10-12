@@ -25,10 +25,10 @@
 ---
 # Demo
 - Main Window
-![Main window](https://user-images.githubusercontent.com/72084877/136985124-afe05314-5fac-4ecc-a8ca-05e7f3e9b766.png)
+- ![Main window](https://user-images.githubusercontent.com/72084877/136985124-afe05314-5fac-4ecc-a8ca-05e7f3e9b766.png)
 - Add songs menu (Delete is simiar)
-![Add songs](https://user-images.githubusercontent.com/72084877/136985274-6eaacff1-807e-424e-8ad4-c83612f038a3.png)
+- ![Add songs](https://user-images.githubusercontent.com/72084877/136985274-6eaacff1-807e-424e-8ad4-c83612f038a3.png)
 - Elapsed time in the bottom, slider to watch where the song currently is
-![Example](https://user-images.githubusercontent.com/72084877/136985488-40b34a7f-704d-497b-bbcc-c5a759687e3c.png)
+- ![Example](https://user-images.githubusercontent.com/72084877/136985488-40b34a7f-704d-497b-bbcc-c5a759687e3c.png)
 - Volume slider and mute/unmute button are in the right
-![Volume](https://user-images.githubusercontent.com/72084877/136985676-aaa7de69-5c92-4fec-a26e-225088336b2e.png)
+- ![Volume](https://user-images.githubusercontent.com/72084877/136985676-aaa7de69-5c92-4fec-a26e-225088336b2e.png)
