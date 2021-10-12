@@ -16,3 +16,5 @@
 - Buttons for: Stop, Pause, Backward, Play, Forward and Replay
 - Volume slider and button for mute/unmute
 - Status bar for elapsed/total time
+---
+# Demo
